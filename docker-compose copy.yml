@@ -1,0 +1,51 @@
+version: "3"
+services:
+  node:
+    image: node:16.14
+    container_name: store_manager
+    tty: true
+    stdin_open: true
+    command: bash # você pode subistituir `bash` por `npm run debug` para iniciar a API quando container for iniciado  
+    restart: always
+    working_dir: /home/node/app
+    volumes:
+      - ./:/home/node/app
+
+    depends_on:
+      - db
+
+    ports:
+      - 3000:3000
+      - 9229:9229
+
+    environment:
+      MYSQL_USER: root
+      MYSQL_PASSWORD: password
+      MYSQL_HOST: db # Nome do service logo abaixo
+      PORT: '3000'
+      HOST: store_manager
+
+    networks:
+      - store_manager_net
+  #----------------------------------------------------------------
+
+  # Serviço que irá rodar o banco de dados
+  db:
+    container_name: store_manager_db
+    image: mysql:8.0.23
+    environment:
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - 3306:3306
+    networks:
+      # Conecta esse serviço com a rede que criada
+      - store_manager_net
+  #----------------------------------------------------------------
+
+# Lista de redes que os containeres irão utilizar
+networks:
+  # Cria a rede que conecta os serviços `db` e `node`
+  store_manager_net:
+    # Específica o drive da rede
+    driver: bridge
+#----------------------------------------------------------------
