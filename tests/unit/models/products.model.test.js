@@ -14,7 +14,9 @@ describe('Teste para a camada de Model', function () {
   describe('Testa o funcionamento da função getAllProducts', function () {
     it('Testa funcionalidades da getAllProducts', async function () {
       sinon.stub(connection, 'execute').resolves(mockAllProducts);
+
       const result = await productModel.getAllProducts();
+
       expect(mockProducts).to.be.an('array');
       expect(mockProducts).to.be.deep.equal(result);
     });
@@ -24,7 +26,9 @@ describe('Teste para a camada de Model', function () {
   describe('Testa o funcionamento da função getProductFromId', function () {
     it('Testa se retorna o produto com o id passado como parâmetro', async function () {
       sinon.stub(connection, 'execute').resolves(mockAllProducts);
+
       const product = await productModel.getProductFromId(1);
+
       expect(product).to.be.an('object');
       expect(product).to.be.deep.equal(mockOneProduct);
     });
@@ -34,7 +38,9 @@ describe('Teste para a camada de Model', function () {
   describe('Testa o funcionamento da função insertProduct', function () {
     it('Testa se o produto é inserido corretamente', async function () {
       sinon.stub(connection, 'execute').resolves(mockInsertDb);
+
       const product = await productModel.insertProduct({ name: 'Gungnir' });
+
       expect(product).to.be.deep.equal(4);
     });
     afterEach(sinon.restore);

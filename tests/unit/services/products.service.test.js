@@ -78,7 +78,6 @@ describe('Teste para a camada de Service ', function () {
       sinon.stub(productModel, 'updateProduct').resolves(undefined);
 
       const notUpdatedMessage = await productService.updateProduct('Capa da Invisibilidade de Harry Potter', 1);
-
       expect(notUpdatedMessage).to.be.deep.equal(returnUpdateError)
     });
       afterEach(sinon.restore);
@@ -90,7 +89,6 @@ describe('Teste para a camada de Service ', function () {
       sinon.stub(productModel, 'deleteProduct').resolves(deletedProductMockModel);
 
       const deletedProduct = await productService.deleteProduct(1);
-
       expect(deletedProduct).to.deep.equal(deletedProductMockModel);
     });
 
@@ -98,7 +96,6 @@ describe('Teste para a camada de Service ', function () {
       sinon.stub(productModel, 'getProductFromId').resolves(undefined);
 
       const notFoundProduct = await productService.deleteProduct(99);
-
       expect(notFoundProduct).to.be.deep.equal(returnProductError);
     });
     afterEach(sinon.restore);
@@ -109,7 +106,6 @@ describe('Teste para a camada de Service ', function () {
       sinon.stub(productModel, 'getAllProducts').resolves(mockProducts);
 
       const searchedProduct = await productService.searchProduct('telo');
-
       expect(searchedProduct).to.be.an('array');
       expect(searchedProduct[0]).to.be.deep.equal(mockOneProduct);
     });
