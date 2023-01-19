@@ -38,11 +38,17 @@ const deleteProduct = async (id) => {
   return deletedProduct;
 };
 
+const searchProduct = async (query) => {
+  const products = await productModel.getAllProducts();
+  const filteredProduct = products.filter((item) =>
+    item.name.toLowerCase().includes(query.toLowerCase()));
+  return filteredProduct;
+};
 module.exports = {
   getAllProducts,
   getProductFromId,
   insertProduct,
   updateProduct,
   deleteProduct,
-
+  searchProduct,
 };

@@ -58,10 +58,29 @@ const registerSales = async (sales) => {
   };
 };
 
+const deleteSale = async (id) => {
+  await connection.execute(
+    `
+    DELETE FROM sales WHERE id = ?
+  `,
+    [id],
+  );
+};
+
+const updateSales = async ({ quantity, productId }, salesId) => {
+  await connection.execute(
+    `
+    UPDATE sales_products SET quantity = ? WHERE product_id = ? AND sale_id = ?
+    `,
+    [quantity, productId, salesId],
+  );
+};
+
 module.exports = {
   getAllSales,
   getSalesFromId,
   registerSales,
   getSalesIdWithDate,
- 
+  deleteSale,
+  updateSales,
 };
