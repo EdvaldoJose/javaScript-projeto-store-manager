@@ -1,5 +1,5 @@
 const productModel = require('../models/productModel');
-const { returnProductError, returnUpdateError } = require('../../tests/mocks/returnErrors');
+// const { returnProductError, returnUpdateError } = require('../../tests/mocks/returnErrors');
 
 const getAllProducts = async () => {
   const product = await productModel.getAllProducts();
