@@ -11,14 +11,14 @@ const getSalesFromId = async (id) => {
   const result = await salesModel.getSalesFromId(id);
 
   if (!result) return returnSalesError;
-  return result;
+    return result;
 };
 
 const getSalesIdWithDate = async (id) => {
   const result = await salesModel.getSalesIdWithDate(id);
 
   if (result.length === 0) return returnSalesError;
-  return result;
+    return result;
 };
 
 const registerSales = async (sales) => {

@@ -1,16 +1,21 @@
 [
   {
-    "_id": "677de64d-9cae-41ba-aa80-e3183d3297c5",
+    "_id": "0affa639-bec5-4a3e-82b6-6963e69c9492",
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:3000/products",
-    "url": "http://localhost:3000/products",
+    "url": "http://localhost:3000/sales",
     "method": "GET",
     "sortNum": 0,
-    "created": "2023-01-18T22:47:12.662Z",
-    "modified": "2023-01-18T22:47:12.662Z",
+    "created": "2023-01-18T16:12:42.900Z",
+    "modified": "2023-01-19T13:36:37.947Z",
     "headers": [],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"id\": 4,\n  \"name\": \"ProdutoX\"\n}",
+      "form": []
+    },
     "tests": []
   }
 ]

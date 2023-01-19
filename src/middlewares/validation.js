@@ -8,7 +8,7 @@ const productCheck = Joi.object({
   .messages({
     'any.required': '{#label} is required',
     'string.empty': '{#label} is required',
-    'string.min': '{#label} length must be at least 5 characters log',
+    'string.min': '{#label} length must be at least 5 characters long',
   });
 
 const salesCheck = Joi.object({
@@ -21,6 +21,7 @@ const salesCheck = Joi.object({
     'number.exist': '{#label} not found',
     'number.min': '{#label} must be greater than or equal to 1',
   });
+
 const validateName = async (req, res, next) => {
   const { name } = req.body;
   const { error } = productCheck.validate({ name });

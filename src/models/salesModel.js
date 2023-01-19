@@ -52,7 +52,7 @@ const registerSales = async (sales) => {
   });
 
   await Promise.all(salesRegistered);
-  return {
+    return {
     id: saleId,
     itemsSold: sales,
   };

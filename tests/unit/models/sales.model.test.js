@@ -42,7 +42,10 @@ describe('Testa a camada Models', () => {
       sinon.stub(connection, "execute").resolves(insertMockData);
 
       const sales = await salesModel.registerSales(registeredProducts);
+      // const salesNotFound = await salesModel.registerSales(registeredWrongProducts);
 
+      // expect(!sales).to.be.equal({ message: 'Deu treta, bicho' });
+      // expect(allSalesMock).to.be.an('object');
       expect(returnModelMock).to.be.deep.equal(sales);
     });
   });

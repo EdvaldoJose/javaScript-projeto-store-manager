@@ -1,17 +1,16 @@
-const productsRouter = require('express').Router();
-const productController = require('../controllers/productController');
-const { validateName } = require('../middlewares/validation');
+const salesRouter = require('express').Router();
+const salesController = require('../controllers/salesController');
+const { validateSale } = require('../middlewares/validation');
 
-productsRouter.get('/search', productController.searchProduct);
-productsRouter.get('/products', productController.getAllProducts);
-productsRouter.get('/:id', productController.getProductFromId);
+salesRouter.get('/', salesController.getAllSales);
+salesRouter.get('/:id', salesController.getSalesIdWithDate);
 
-productsRouter.post('/', validateName, productController.insertProduct);
+salesRouter.post('/', validateSale, salesController.registerSales);
 
-productsRouter.put('/:id', validateName, productController.updateProduct);
+salesRouter.put('/:id', validateSale, salesController.updateSales);
 
-productsRouter.delete('/:id', productController.deleteProduct);
+salesRouter.delete('/:id', salesController.deleteSale);
 
 module.exports = {
-  productsRouter,
+  salesRouter,
 };

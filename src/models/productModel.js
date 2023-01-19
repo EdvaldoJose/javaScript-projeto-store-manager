@@ -1,9 +1,7 @@
 const connection = require('./connection');
 
 const getAllProducts = async () => {
-  const [result] = await connection.execute(
-    'SELECT * FROM products',
-  );
+  const [result] = await connection.execute('SELECT * FROM products');
   return result;
 };
 
@@ -23,8 +21,29 @@ const insertProduct = async (product) => {
   return insertId;
 };
 
+const updateProduct = async (name, id) => {
+  const [{ affectedRows }] = await connection.execute(
+    `
+    UPDATE products SET name = ? WHERE id = ?
+  `,
+    [name, id],
+  );
+  return affectedRows;
+};
+
+const deleteProduct = async (id) => {
+  await connection.execute(
+    `
+    DELETE FROM products WHERE id = ?;
+  `,
+    [id],
+  );
+};
+
 module.exports = {
   getAllProducts,
   getProductFromId,
   insertProduct,
+  updateProduct,
+  deleteProduct,
 };

@@ -5,18 +5,18 @@ const {
 
 const getAllProducts = async () => {
   const product = await productModel.getAllProducts();
-  return product;
+    return product;
 };
 
 const getProductFromId = async (id) => {
   const product = await productModel.getProductFromId(id);
-  return product;
+    return product;
 };
 
 const insertProduct = async ({ name }) => {
   const id = await productModel.insertProduct(name);
   const product = await productModel.getProductFromId(id);
-  return product;
+    return product;
 };
 
 const updateProduct = async (name, id) => {
@@ -25,7 +25,7 @@ const updateProduct = async (name, id) => {
   const affectedRows = await productModel.updateProduct(name, id);
   if (!affectedRows) return returnUpdateError;
   const result = await productModel.getProductFromId(id);
-  return result;
+    return result;
 };
 
 const deleteProduct = async (id) => {
@@ -35,14 +35,14 @@ const deleteProduct = async (id) => {
 
   const deletedProduct = await productModel.deleteProduct(id);
 
-  return deletedProduct;
+    return deletedProduct;
 };
 
 const searchProduct = async (query) => {
   const products = await productModel.getAllProducts();
   const filteredProduct = products.filter((item) =>
     item.name.toLowerCase().includes(query.toLowerCase()));
-  return filteredProduct;
+    return filteredProduct;
 };
 module.exports = {
   getAllProducts,

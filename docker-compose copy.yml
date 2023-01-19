@@ -28,7 +28,6 @@ services:
     networks:
       - store_manager_net
   #----------------------------------------------------------------
-
   # Serviço que irá rodar o banco de dados
   db:
     container_name: store_manager_db
@@ -41,7 +40,6 @@ services:
       # Conecta esse serviço com a rede que criada
       - store_manager_net
   #----------------------------------------------------------------
-
 # Lista de redes que os containeres irão utilizar
 networks:
   # Cria a rede que conecta os serviços `db` e `node`

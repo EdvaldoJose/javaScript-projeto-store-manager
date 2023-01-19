@@ -29,7 +29,7 @@ const getSalesIdWithDate = async (req, res) => {
 const registerSales = async (req, res) => {
   const result = await salesService.registerSales(req.body);
   if (result.type) return res.status(status[result.type]).json({ message: result.message });
-  return res.status(status.HTTP_OK).json(result);
+    return res.status(status.HTTP_OK).json(result);
 };
 const deleteSale = async (req, res) => {
   const { id } = req.params;
@@ -51,7 +51,7 @@ const updateSales = async (req, res) => {
     saleId: id,
     itemsUpdated: result,
   };
-  return res.status(status.HTTP_GET_OK).json(responseToAPI);
+    return res.status(status.HTTP_GET_OK).json(responseToAPI);
 };
 
 module.exports = {
