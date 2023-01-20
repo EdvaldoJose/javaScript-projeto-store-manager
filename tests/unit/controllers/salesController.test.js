@@ -2,7 +2,7 @@ const chai = require('chai');
 const { expect } = require('chai');
 const sinon = require('sinon');
 const sinonChai = require('sinon-chai');
-const salesController = require('../../..//src/controllers/salesController');
+const salesController = require('../../../src/controllers/salesController');
 const salesService = require('../../../src/services/salesService');
 const {
   allSalesArrayMock,
