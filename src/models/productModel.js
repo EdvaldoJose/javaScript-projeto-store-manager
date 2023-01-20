@@ -24,7 +24,7 @@ const insertProduct = async (product) => {
 const updateProduct = async (name, id) => {
   const [{ affectedRows }] = await connection.execute(
     `
-    UPDATE product SET name = ? WHERE id = ?
+    UPDATE products SET name = ? WHERE id = ?
   `,
     [name, id],
   );
