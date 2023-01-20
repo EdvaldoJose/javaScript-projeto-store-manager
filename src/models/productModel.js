@@ -20,11 +20,11 @@ const insertProduct = async (product) => {
   );
   return insertId;
 };
-
+// UPDATE products
 const updateProduct = async (name, id) => {
   const [{ affectedRows }] = await connection.execute(
     `
-    UPDATE products SET name = ? WHERE id = ?
+    UPDATE product SET name = ? WHERE id = ?
   `,
     [name, id],
   );

@@ -1,6 +1,6 @@
 const returnSalesError = {
   type: 'NOT_FOUND',
-  message: 'Sales not found'
+  message: 'Sale not found'
 };
 
 const returnProductError = {

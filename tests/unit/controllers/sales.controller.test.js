@@ -42,12 +42,12 @@ describe('Teste para a camada de Controller', () => {
       sinon.stub(salesService, 'getSalesFromId').resolves(registeredProducts);
 
       res.status = sinon.stub().returns(res);
-      res.json = sinon.stub().returns();
+      res.status = sinon.stub().returns(); // res.json
 
       await salesController.getSalesFromId(req, res);
 
       expect(res.status).to.have.been.calledWith(HTTP_OK);
-      expect(res.json).to.have.been.calledWith(registeredProducts);
+      expect(res.status).to.have.been.calledWith(registeredProducts); // res.json
     });
 
     it('Testa se retorna mensagem de erro ao passar id errado', async () => {
