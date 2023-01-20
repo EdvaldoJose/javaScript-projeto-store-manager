@@ -2,7 +2,7 @@ const connection = require('./connection');
 // alteração do nome_do_banco.tabela (StoreManager.tabela);
 const getAllProducts = async () => {
   const [result] = await connection.execute('SELECT * FROM StoreManager.products');
-  return result;
+    return result;
 };
 
 const getProductFromId = async (id) => {
@@ -10,7 +10,7 @@ const getProductFromId = async (id) => {
     'SELECT * FROM StoreManager.products WHERE id = ?',
     [id],
   );
-  return result;
+    return result;
 };
 
 const insertProduct = async (product) => {

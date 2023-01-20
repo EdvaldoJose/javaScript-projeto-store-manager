@@ -37,9 +37,9 @@ const registerSales = async (sales) => {
   return result;
 };
 const deleteSale = async (id) => {
-  const idSale = await salesModel.getSalesFromId(id);
+  const idSales = await salesModel.getSalesFromId(id); // alteração idSale (idSales);
 
-  if (idSale.length === 0) return returnSalesError;
+  if (idSales.length === 0) return returnSalesError; // alteração idSale(idSales);
 
   await salesModel.deleteSale(id);
 };
