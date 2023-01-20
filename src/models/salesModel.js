@@ -1,5 +1,5 @@
 const connection = require('./connection');
-
+// alteração do nome_do_banco.tabela (StoreManager.tabela);
 const getAllSales = async () => {
   const [result] = await connection.execute(`
     SELECT sale_id as saleId,
@@ -15,7 +15,7 @@ const getAllSales = async () => {
 
 const getSalesFromId = async (id) => {
   const [result] = await connection.execute(`SELECT product_id as productId,
-  quantity FROM sales_products WHERE sale_id = ?`, [id]);
+  quantity FROM StoreManager.sales_products WHERE sale_id = ?`, [id]);
   return result;
 };
 
@@ -35,7 +35,7 @@ const getSalesIdWithDate = async (id) => {
 
 const insertSales = async () => {
   const [result] = await connection.execute(
-    'INSERT INTO sales (date) VALUES (default)',
+    'INSERT INTO StoreManager.sales (date) VALUES (default)',
   );
   const { insertId } = result;
   return insertId;
@@ -45,7 +45,7 @@ const registerSales = async (sales) => {
   const saleId = await insertSales();
   const salesRegistered = sales.map(async ({ productId, quantity }) => {
     const [result] = await connection.execute(
-      'INSERT INTO sales_products (sale_id, product_id, quantity) VALUES (?, ?, ?)',
+      'INSERT INTO StoreManager.sales_products (sale_id, product_id, quantity) VALUES (?, ?, ?)',
       [saleId, productId, quantity],
     );
     return result;
@@ -61,7 +61,7 @@ const registerSales = async (sales) => {
 const deleteSale = async (id) => {
   await connection.execute(
     `
-    DELETE FROM sales WHERE id = ?
+    DELETE FROM StoreManager.sales WHERE id = ?
   `,
     [id],
   );
@@ -70,7 +70,7 @@ const deleteSale = async (id) => {
 const updateSales = async ({ quantity, productId }, salesId) => {
   await connection.execute(
     `
-    UPDATE sales_products SET quantity = ? WHERE product_id = ? AND sale_id = ?
+    UPDATE StoreManager.sales_products SET quantity = ? WHERE product_id = ? AND sale_id = ?
     `,
     [quantity, productId, salesId],
   );

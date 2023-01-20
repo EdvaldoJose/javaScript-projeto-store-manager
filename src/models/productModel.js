@@ -1,13 +1,13 @@
 const connection = require('./connection');
-
+// alteração do nome_do_banco.tabela (StoreManager.tabela);
 const getAllProducts = async () => {
-  const [result] = await connection.execute('SELECT * FROM products');
+  const [result] = await connection.execute('SELECT * FROM StoreManager.products');
   return result;
 };
 
 const getProductFromId = async (id) => {
   const [[result]] = await connection.execute(
-    'SELECT * FROM products WHERE id = ?',
+    'SELECT * FROM StoreManager.products WHERE id = ?',
     [id],
   );
   return result;
@@ -15,7 +15,7 @@ const getProductFromId = async (id) => {
 
 const insertProduct = async (product) => {
   const [{ insertId }] = await connection.execute(
-    'INSERT INTO products (name) VALUES (?)',
+    'INSERT INTO StoreManager.products (name) VALUES (?)',
     [product],
   );
   return insertId;
@@ -24,7 +24,7 @@ const insertProduct = async (product) => {
 const updateProduct = async (name, id) => {
   const [{ affectedRows }] = await connection.execute(
     `
-    UPDATE products SET name = ? WHERE id = ?
+    UPDATE StoreManager.products SET name = ? WHERE id = ?
   `,
     [name, id],
   );
@@ -34,7 +34,7 @@ const updateProduct = async (name, id) => {
 const deleteProduct = async (id) => {
   await connection.execute(
     `
-    DELETE FROM products WHERE id = ?;
+    DELETE FROM StoreManager.products WHERE id = ?;
   `,
     [id],
   );

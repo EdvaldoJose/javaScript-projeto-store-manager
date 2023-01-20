@@ -1,4 +1,5 @@
 const express = require('express');
+// desconstruindo as importações { };
 const { productsRouter } = require('./routers/productsRouter');
 const { salesRouter } = require('./routers/salesRouter');
 
