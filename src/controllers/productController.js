@@ -9,6 +9,7 @@ const getAllProducts = async (_req, res) => {
 const getProductFromId = async (req, res) => {
   const { id } = req.params;
   const product = await productService.getProductFromId(id);
+
   if (!product) return res.status(status.NOT_FOUND).json({ message: 'Product not found' });
   res.status(status.HTTP_GET_OK).json(product);
 };
