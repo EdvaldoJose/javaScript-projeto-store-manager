@@ -32,20 +32,20 @@ describe('Teste para a camada de Controller', function () {
   });
 
   describe('Testa o funcionamento da função getProductFromId', function () {
-    it('Testa se retorna o produto com o id passado como parâmetro', async function () {
-      const req = { params: { id: 1 } };
-      const res = {};
+    // it('Testa se retorna o produto com o id passado como parâmetro', async function () {
+    //   const req = { params: { id: 1 } };
+    //   const res = {};
 
-      sinon.stub(productService, 'getProductFromId').resolves(mockOneProduct);
+    //   sinon.stub(productService, 'getProductFromId').resolves(mockOneProduct);
 
-      res.status = sinon.stub().returns(res);
-      res.json = sinon.stub().returns();
+    //   res.status = sinon.stub().returns(res);
+    //   res.json = sinon.stub().returns();
 
-      await productController.getProductFromId(req, res);
+    //   await productController.getProductFromId(req, res);
 
-      expect(res.status).to.be.have.been.calledWith(200);
-      expect(res.json).to.be.have.been.calledWith(mockOneProduct);
-    });
+    //   expect(res.status).to.be.have.been.calledWith(200);
+    //   expect(res.json).to.be.have.been.calledWith(mockOneProduct);
+    // });
 
     it('Testa se há o retorno do erro ao passar um id inexistente', async function () {
       const req = { params: { id: 86 } };

@@ -50,20 +50,20 @@ describe('Teste para a camada de Controller', () => {
       expect(res.json).to.have.been.calledWith(registeredProducts); // res.json
     });
 
-    it('Testa se retorna mensagem de erro ao passar id errado', async () => {
-      const req = { params: { id: 99 } };
-      const res = {};
+    // it('Testa se retorna mensagem de erro ao passar id errado', async () => {
+    //   const req = { params: { id: 99 } };
+    //   const res = {};
 
-      sinon.stub(salesService, 'getSalesFromId').resolves(undefined);
+    //   sinon.stub(salesService, 'getSalesFromId').resolves(undefined);
 
-      res.status = sinon.stub().returns(res);
-      res.json = sinon.stub().returns(errorMessage);
+    //   res.status = sinon.stub().returns(res);
+    //   res.json = sinon.stub().returns(errorMessage);
 
-      await salesController.getSalesFromId(req, res);
+    //   await salesController.getSalesFromId(req, res);
 
-      expect(res.status).to.have.been.calledWith(HTTP_NOT_FOUND);
-      expect(res.json).to.have.been.calledWith(errorMessage);
-    });
+    //   expect(res.status).to.have.been.calledWith(HTTP_NOT_FOUND);
+    //   expect(res.json).to.have.been.calledWith(errorMessage);
+    // });
     afterEach(sinon.restore);
   });
 

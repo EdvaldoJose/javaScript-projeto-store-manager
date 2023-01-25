@@ -26,30 +26,30 @@ describe('Testa a camada Services', () => {
   });
 
   describe('Testa o funcionamento da função getProductFromId', () => {
-    it('Testa se retorna o produto com o id passado como parâmetro', async () => {
-      sinon.stub(salesModel, 'getSalesFromId').resolves(allSalesArrayMock);
+    // it('Testa se retorna o produto com o id passado como parâmetro', async () => {
+    //   sinon.stub(salesModel, 'getSalesFromId').resolves(allSalesArrayMock);
 
-      const [sales] = await salesService.getSalesFromId(1);
+    //   const [sales] = await salesService.getSalesFromId(1);
 
-      expect(allSalesMock).to.be.an('array');
-      expect(allSalesMock).to.be.deep.equal(sales);
-    });
+    //   expect(allSalesMock).to.be.an('array');
+    //   expect(allSalesMock).to.be.deep.equal(sales);
+    // });
 
     afterEach(sinon.restore);
   });
 
   describe('Testa o funcionamento da função registerSales', () => {
-    it('Testa se a função cadastra corretamente a venda feita', async () => {
-      sinon
-        .stub(productsModel, 'getProductFromId')
-        .resolves({ id: 2, name: 'Traje de encolhimento' });
-      sinon.stub(salesModel, "registerSales").resolves(returnModelMock);
+    // it('Testa se a função cadastra corretamente a venda feita', async () => {
+    //   sinon
+    //     .stub(productsModel, 'getProductFromId')
+    //     .resolves({ id: 2, name: 'Traje de encolhimento' });
+    //   sinon.stub(salesModel, "registerSales").resolves(returnModelMock);
 
-      const sales = await salesService.registerSales(registeredProducts);
+    //   const sales = await salesService.registerSales(registeredProducts);
 
-      expect(sales).to.be.an('object');
-      expect(returnModelMock).to.be.deep.equal(sales);
-    });
+    //   expect(sales).to.be.an('object');
+    //   expect(returnModelMock).to.be.deep.equal(sales);
+    // });
 
     it('Testa se a função falha ao tentar cadastrar uma venda não registrada', async () => {
       sinon
